@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 const state = {
+  /**
+   * 默认tabview 首页
+   */
   pageOpendList: [
     {
       path: '/dashboard',
@@ -17,7 +20,8 @@ const state = {
 }
 const mutations = {
   /**
-   * @method tabOpendListInit 初始化设置tab 一般默认首页,页面加载时调用
+   * 初始化设置tab 一般默认首页,页面加载时调用
+   * @method tabOpendListInit
    */
   setOpenedList(state) {
     const local = localStorage.pageOpendList && JSON.parse(localStorage.pageOpendList).length > 0
@@ -26,8 +30,8 @@ const mutations = {
     }
   },
   /**
-   * 
-   * @method setPageOpendList 每次打开页面都会经过此方法，用于合并参数
+   * 每次打开页面都会经过此方法，用于合并参数
+   * @method setPageOpendList
    */
   setPageOpendList (state, res) {
     const {index, query, params, meta, path} = res

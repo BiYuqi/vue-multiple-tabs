@@ -1,6 +1,7 @@
 <template>
   <div class="good-detail">
-    商品详情 {{ $route.params.id }}
+    <h2>我是组件GoodDetail</h2>
+    <h3>商品编号 {{ $route.params.id }}</h3>
   </div>
 </template>
 

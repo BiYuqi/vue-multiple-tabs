@@ -13,8 +13,10 @@ export default {
     return {}
   },
   beforeCreate() {
-    this.$store.commit('setOpenedList')
     refreshAddRouter(this)
+    setTimeout(() => {
+      this.$store.commit('setOpenedList')
+    }, 0)
   }
 }
 </script>

@@ -21,7 +21,31 @@
     },
     methods: {
       jump (item) {
-        this.$router.push({
+        const params = item.params
+        const query = item.query
+        if (params) { // 带有params参数
+          this.$router.push({
+            name: item.name,
+            params: params
+          })
+          return
+        }
+        if (query) { // 带有query参数
+          this.$router.push({
+            name: item.name,
+            query: query
+          })
+          return
+        }
+        if (query && params) { // 同时带有params&query参数
+          this.$router.push({
+            name: item.name,
+            params: params,
+            query: query
+          })
+          return
+        }
+        this.$router.push({ // 无参数
           name: item.name
         })
       }

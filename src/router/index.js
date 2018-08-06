@@ -21,16 +21,6 @@ const routes = [
           isTabView: true,
           title: '首页'
         }
-      },
-      {
-        path: 'test',
-        name: 'test_index',
-        component: () =>
-          import ('@/pages/Test/index.vue'),
-        meta: {
-          isTabView: true,
-          title: '测试'
-        }
       }
     ]
   }
@@ -41,10 +31,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  BaseSet.opendPage(router.app, to.name, to.params, to.query, to.meta, to.path)
   next()
 })
 router.afterEach((to, from, next) => {
+  BaseSet.addOpendPage(router.app, to.name, to.params, to.query, to.meta, to.path)
 })
 
 export default router

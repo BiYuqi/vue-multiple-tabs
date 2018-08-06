@@ -22,8 +22,8 @@ export default {
       const name = 'list-' + o
       var obj = {
         vm: this,
-        component: () => import('@/pages/GoodDetail/index.vue'),
-        com: '@/pages/GoodDetail/index.vue',
+        component: () => import('@/pages/GoodDetail/GoodDetail.vue'),
+        com: '@/pages/GoodDetail/GoodDetail.vue',
         name: name,
         params: {
           id: o

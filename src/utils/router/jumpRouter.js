@@ -71,8 +71,8 @@ export function jumpRouter (message) {
   var obj = {
     vm: message.vm,
     component: () =>
-      import ('@/pages/GoodDetail/index.vue'),
-    com: '@/pages/GoodDetail/index.vue',
+      import ('@/pages/GoodDetail/GoodDetail.vue'),
+    com: '@/pages/GoodDetail/GoodDetail.vue',
     name: message.name,
     params: message.params,
     query: message.query
@@ -90,7 +90,8 @@ export function jumpRouter (message) {
 export function refreshAddRouter (vm) {
   // 此处正则提取的是路由的文件夹名，请注意，是为了map映射取key, 会得到GoodDetail
   // GoodDetail: () => import('@/pages/GoodDetail/index.vue')
-  const reg = /(\w+)\/[^\/]+$/gi
+  const reg = /[^/]+$/gim
+  const reg2 = /(\w+)\/$/gm
   const dynamic = localStorage.getItem('dynamic') && JSON.parse(localStorage.getItem('dynamic')) || []
   const routes = []
   const routerItem = {
@@ -101,9 +102,9 @@ export function refreshAddRouter (vm) {
   }
   if (dynamic.length > 0) {
     for (let i = 0; i < dynamic.length; i++) {
-      const mapName = dynamic[i].meta.component.match(reg)
-      const routeName = 'GoodDetail'
-      dynamic[i].component = routerMap[routeName]
+      const FullPath = dynamic[i].meta.component
+      const mapName = FullPath.substring(FullPath.lastIndexOf('\/') + 1, FullPath.lastIndexOf('.'))
+      dynamic[i].component = routerMap[mapName]
       routerItem.children.push(dynamic[i])
     }
     routes.push(routerItem)

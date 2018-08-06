@@ -1,14 +1,14 @@
 import store from '@/store'
 export default {
   /**
-   * @method opendPage
+   * @method addOpendPage
    * @param vm 当前实例
    * @param name 当前路由name
    * @param query 查询参数
    * @param param 查询参数
    * 一般放在router BeforeAfter(BeforeEach) 执行
    */
-  opendPage: (vm, name, params = '', query = '', meta = '', path = '') => {
+  addOpendPage: (vm, name, params = '', query = '', meta = '', path = '') => {
     let pageOpendList = store.state.pageOpendList
     let opendLen = pageOpendList.length
     let i = 0

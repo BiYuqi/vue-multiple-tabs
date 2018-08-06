@@ -1,19 +1,11 @@
 <template>
   <div class="aside-pan">
     侧边栏
-    <el-button @click="jump">大杀四方</el-button>
   </div>
 </template>
 
 <script>
   export default {
-    methods: {
-      jump () {
-        this.$router.push({
-          name: 'test_index'
-        })
-      }
-    }
   }
 </script>
 
