@@ -24,9 +24,9 @@ const mutations = {
    * @method tabOpendListInit
    */
   setOpenedList(state) {
-    const local = localStorage.pageOpendList && JSON.parse(localStorage.pageOpendList).length > 0
+    const local = sessionStorage.pageOpendList && JSON.parse(sessionStorage.pageOpendList).length > 0
     if (local) {
-      state.pageOpendList = JSON.parse(localStorage.pageOpendList)
+      state.pageOpendList = JSON.parse(sessionStorage.pageOpendList)
     }
   },
   /**
@@ -49,7 +49,7 @@ const mutations = {
       opendPage.path = path
     }
     state.pageOpendList.splice(index, 1, opendPage)
-    localStorage.pageOpendList = JSON.stringify(state.pageOpendList)
+    sessionStorage.pageOpendList = JSON.stringify(state.pageOpendList)
   },
   increateTag (state, tag) {
     state.pageOpendList.push(tag)

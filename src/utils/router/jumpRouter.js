@@ -31,8 +31,8 @@ function addRouter (param) {
     component: Main,
     children: []
   }
-  const dynamic = localStorage.getItem('dynamic') &&
-                  JSON.parse(localStorage.getItem('dynamic')) ||
+  const dynamic = sessionStorage.getItem('dynamic') &&
+                  JSON.parse(sessionStorage.getItem('dynamic')) ||
                   []
   if (dynamic.length > 0) {
     const len = dynamic.length
@@ -50,7 +50,7 @@ function addRouter (param) {
     routerItem.children.push(tab)
     routes.push(routerItem)
     dynamic.push(tab)
-    localStorage.setItem('dynamic', JSON.stringify(dynamic))
+    sessionStorage.setItem('dynamic', JSON.stringify(dynamic))
     vm.$router.addRoutes(routes)
   }
   /**
@@ -92,7 +92,7 @@ export function refreshAddRouter (vm) {
   // GoodDetail: () => import('@/pages/GoodDetail/index.vue')
   const reg = /[^/]+$/gim
   const reg2 = /(\w+)\/$/gm
-  const dynamic = localStorage.getItem('dynamic') && JSON.parse(localStorage.getItem('dynamic')) || []
+  const dynamic = sessionStorage.getItem('dynamic') && JSON.parse(sessionStorage.getItem('dynamic')) || []
   const routes = []
   const routerItem = {
     path: '/',
