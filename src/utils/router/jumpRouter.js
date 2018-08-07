@@ -89,7 +89,7 @@ export function jumpRouter (message) {
  */
 export function refreshAddRouter (vm) {
   // 此处正则提取的是路由的文件夹名，请注意，是为了map映射取key, 会得到GoodDetail
-  // GoodDetail: () => import('@/pages/GoodDetail/index.vue')
+  // GoodDetail: () => import('@/pages/GoodDetail/GoodDetail.vue')
   const reg = /[^/]+$/gim
   const reg2 = /(\w+)\/$/gm
   const dynamic = sessionStorage.getItem('dynamic') && JSON.parse(sessionStorage.getItem('dynamic')) || []
