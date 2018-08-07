@@ -34,6 +34,7 @@ router.beforeEach((to, from, next) => {
   next()
 })
 router.afterEach((to, from, next) => {
+  console.log('afterEach', to.name)
   BaseSet.addOpendPage(router.app, to.name, to.params, to.query, to.meta, to.path)
 })
 

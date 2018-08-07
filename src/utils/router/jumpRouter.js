@@ -14,10 +14,10 @@ function addRouter (param) {
     meta: {
       component: com,
       title: name,
-      isTabView: true
-    },
-    params,
-    query
+      isTabView: true,
+      params,
+      query
+    }
   }
   /**
    * 动态路由
@@ -32,8 +32,7 @@ function addRouter (param) {
     children: []
   }
   const dynamic = sessionStorage.getItem('dynamic') &&
-                  JSON.parse(sessionStorage.getItem('dynamic')) ||
-                  []
+                  JSON.parse(sessionStorage.getItem('dynamic')) || []
   if (dynamic.length > 0) {
     const len = dynamic.length
     for (let i = 0; i < len; i++) {
@@ -64,15 +63,15 @@ function addRouter (param) {
 }
 
 /**
- * 这里只是针对一个组件进行复用，实可根据业务进行动态传入
- * @param {路由信息对象} message 
+ * 这里只是针对一个组件进行复用，实可根据业务进行动态传入组件name
+ * 具体请看@/pages/DashBoard/index.vue 具体用法
+ * @param {路由信息对象} message
  */
 export function jumpRouter (message) {
   var obj = {
     vm: message.vm,
-    component: () =>
-      import ('@/pages/GoodDetail/GoodDetail.vue'),
-    com: '@/pages/GoodDetail/GoodDetail.vue',
+    component: routerMap[message.component],
+    com: message.com,
     name: message.name,
     params: message.params,
     query: message.query

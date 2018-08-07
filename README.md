@@ -1,13 +1,33 @@
 # vue-multiple-tabs-use-one-component
 ## 介绍
-该工程是基于vue的动态路由案例，复用一个组件，打开多个tab标签页，实现商品类组件复用，有可以多tab
+> 该工程是基于vue的动态路由案例，复用一个组件，打开多个tab标签页，实现商品类组件复用，可以多tab打开
+
 ## TODO
 - [x] 复用组件多tab打开
 - [x] 刷新动态路由页面不丢失
 - [x] 支持路由传参
-- [ ] 修复刷新时，动态路由参数丢失
-- [ ] 删除动态路由
-- [ ] 实现逻辑介绍
+- [x] 修复刷新时，动态路由参数丢失
+- [ ] 删除tab页签(包含注入的动态路由)
+- [ ] 功能实现文档编写
+
+## 使用
+* 具体请看src/pages/DashBoard/index.vue 具体用法
+* 所有动态路由参数均放在meta字段里
+
+```js
+  const tab = {
+    name: name,
+    path: '/' + name,
+    component: component,
+    meta: {
+      component: com,
+      title: name,
+      isTabView: true,
+      params,
+      query
+    }
+  }
+```
 ## 预览
 ![](http://oiukswkar.bkt.clouddn.com/dynamic-router.gif)
 
