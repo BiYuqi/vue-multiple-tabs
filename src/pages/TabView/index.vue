@@ -21,23 +21,26 @@
     },
     methods: {
       jump (item) {
-        const params = item.params
-        const query = item.query
-        if (params) { // 带有params参数
+        const {params, query, name} = item
+        /**
+         * @description
+         * 下面四种情况考虑到参数传递的问题，所以单独处理
+         */
+        if (params) {
           this.$router.push({
             name: item.name,
             params: params
           })
           return
         }
-        if (query) { // 带有query参数
+        if (query) {
           this.$router.push({
             name: item.name,
             query: query
           })
           return
         }
-        if (query && params) { // 同时带有params&query参数
+        if (query && params) {
           this.$router.push({
             name: item.name,
             params: params,
@@ -45,7 +48,7 @@
           })
           return
         }
-        this.$router.push({ // 无参数
+        this.$router.push({
           name: item.name
         })
       }
