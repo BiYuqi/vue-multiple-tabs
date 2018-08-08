@@ -6,54 +6,60 @@
       :key="item.id"
       :class="{ active: item.name === $route.name }"
       @click.native="jump(item)"
-      closable>
+      @close="close(item.name)"
+      :closable="item.name !== 'dashboard_index'">
       {{ item.meta.title }}
     </el-tag>
   </div>
 </template>
 
 <script>
-  export default {
-    computed: {
-      tagList () {
-        return this.$store.state.pageOpendList
-      }
-    },
-    methods: {
-      jump (item) {
-        const {params, query, name} = item
-        /**
-         * @description
-         * 下面四种情况考虑到参数传递的问题，所以单独处理
-         */
-        if (params) {
-          this.$router.push({
-            name: item.name,
-            params: params
-          })
-          return
-        }
-        if (query) {
-          this.$router.push({
-            name: item.name,
-            query: query
-          })
-          return
-        }
-        if (query && params) {
-          this.$router.push({
-            name: item.name,
-            params: params,
-            query: query
-          })
-          return
-        }
+import { delAndResetRouter } from '@/utils/router/delAndResetRouter'
+export default {
+  computed: {
+    tagList () {
+      return this.$store.state.pageOpendList
+    }
+  },
+  methods: {
+    jump (item) {
+      const {params, query, name} = item
+      /**
+       * @description
+       * 下面四种情况考虑到参数传递的问题，所以单独处理
+       */
+      if (params) {
         this.$router.push({
-          name: item.name
+          name: item.name,
+          params: params
         })
+        return
       }
+      if (query) {
+        this.$router.push({
+          name: item.name,
+          query: query
+        })
+        return
+      }
+      if (query && params) {
+        this.$router.push({
+          name: item.name,
+          params: params,
+          query: query
+        })
+        return
+      }
+      this.$router.push({
+        name: item.name
+      })
+    },
+    close (name) {
+      console.log(name)
+      delAndResetRouter(this, name)
     }
   }
+}
 </script>
 
 <style lang="scss">

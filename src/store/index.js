@@ -53,6 +53,30 @@ const mutations = {
   },
   increateTag (state, tag) {
     state.pageOpendList.push(tag)
+  },
+  /**
+   * 
+   * @param {*} state 
+   * @param {当前页签信息} obj 
+   * @param { 当前实例 } obj.vm
+   * @param { 路由name} obj.name
+   */
+  closeOpendList(state, obj) {
+    // 临时解决方案 后续再完善
+    const lists = state.pageOpendList
+    if (obj.name === 'dashboard_index') {
+      return
+    }
+    for (let i = 0; i < lists.length; i++) {
+      if (lists[i].name === obj.name) {
+        const lastName = state.pageOpendList[i - 1].name
+        state.pageOpendList.splice(i, 1)
+        sessionStorage.setItem('pageOpendList', JSON.stringify(state.pageOpendList))
+        obj.vm.$router.push({
+          name: lastName
+        })
+      }
+    }
   }
 }
 

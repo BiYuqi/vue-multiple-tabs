@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <router-view v-if="$route.name === 'dashboard'"></router-view>
+    <router-view v-if="$route.name === 'dashboard_index'"></router-view>
     <router-view :key="Date.now()" v-else></router-view>
   </div>
 </template>
 
 <script>
-import { refreshAddRouter } from '@/utils/router/jumpRouter'
+import { refreshAddRouter } from '@/utils/router/insertDynaminRouter'
 export default {
   name: 'app',
   data () {

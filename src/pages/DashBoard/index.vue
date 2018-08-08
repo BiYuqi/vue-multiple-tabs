@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { jumpRouter } from '@/utils/router/jumpRouter'
+import { jumpRouter } from '@/utils/router/insertDynaminRouter'
 export default {
   data () {
     return {}
