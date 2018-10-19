@@ -5,7 +5,7 @@ export default [
   {
     path: '',
     name: 'home_index',
-    component: () => import ('@/pages/Main.vue'),
+    component: () => import('@/pages/Main.vue'),
     redirect: '/dashboard',
     children: [
       {

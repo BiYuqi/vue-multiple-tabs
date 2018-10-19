@@ -58,7 +58,7 @@ function addRouter (param) {
   vm.$router.push({
     name: name,
     params,
-    query 
+    query
   })
 }
 
@@ -84,12 +84,12 @@ export function jumpRouter (message) {
  * @param { routerMap } 动态路由模板映射
  * @param { routes } 空数组，因为addRoutes只支持数组
  * @param { childrens } children 不多解释
- * @param {当前实例} vm 
+ * @param {当前实例} vm
  */
 export function refreshAddRouter (vm) {
   // 此处正则提取的是路由的文件夹名，请注意，是为了map映射取key, 会得到GoodDetail
   // GoodDetail: () => import('@/pages/GoodDetail/GoodDetail.vue')
-  const dynamic = sessionStorage.getItem('dynamic') && JSON.parse(sessionStorage.getItem('dynamic')) || []
+  const dynamic = (sessionStorage.getItem('dynamic') && JSON.parse(sessionStorage.getItem('dynamic'))) || []
   const routes = []
   const routerItem = {
     path: '/',

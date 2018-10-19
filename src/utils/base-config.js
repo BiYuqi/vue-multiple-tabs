@@ -20,7 +20,7 @@ export default {
             index: i,
             params,
             query,
-            meta,
+            meta
           })
           tagHasOpened = true
           break

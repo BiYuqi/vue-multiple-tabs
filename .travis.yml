@@ -28,4 +28,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/BiYuqi/vue-multiple-tabs-use-one-component.git
+   - GH_REF: github.com/BiYuqi/vue-multiple-tabs.git
