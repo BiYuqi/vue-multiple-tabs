@@ -50,7 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: process.env.config_env === 'git' ? '/vue-multiple-tabs-use-one-component/' : '/',
+    assetsPublicPath: process.env.config_env === 'git' ? '/vue-multiple-tabs/' : '/',
 
     /**
      * Source Maps
