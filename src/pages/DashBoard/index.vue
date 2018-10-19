@@ -2,12 +2,14 @@
   <div class="dash-board">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>模拟商品列表</span>
+        <h2>模拟商品列表</h2>
       </div>
       <div v-for="o in 4" :key="o" class="text-item" @click="jump(o)">
         {{'列表内容 ' + o }}
       </div>
     </el-card>
+    <div class="read-me">
+    </div>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
        * @param { 当前实例 } vm
        * @param { 当前动态路由模板名字 } component
        * @param { 临时缓存组件地址 } com
-       * @param { 路由name } name
+       * @param { 路由name } name 具体看业务是传订单号，还是name+时间戳 要求是不重复
        * @param { 具体传参数 } params
        * @param { 查询参数 } query
        */
@@ -46,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .text-item{
-  border-bottom: 1px solid rgb(35, 120, 160);
+  border-bottom: 1px dashed rgb(44, 136, 179);
+  cursor: pointer;
 }
 </style>

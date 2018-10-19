@@ -14,9 +14,8 @@
 .header-pan{
   height: 60px;
   line-height: 60px;
-  border-bottom: 1px solid #666;
   text-align: center;
-  background-color: darkolivegreen;
+  background-color: #319db5;
   color: #fff;
 }
 </style>

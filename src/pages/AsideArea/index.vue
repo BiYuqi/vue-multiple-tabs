@@ -1,6 +1,6 @@
 <template>
   <div class="aside-pan">
-    侧边栏
+    我是侧边栏
   </div>
 </template>
 
@@ -17,6 +17,8 @@
   width: 180px;
   height: 100%;
   color: #fff;
-  background-color: darkslategray;
+  background-color: #248ecb;
+  text-align: center;
+  padding-top: 150px;
 }
 </style>

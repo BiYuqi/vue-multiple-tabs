@@ -13,23 +13,96 @@
  
 ## 使用
 * 具体请看src/pages/DashBoard/index.vue 具体用法
-* 所有动态路由参数均放在meta字段里
-
-## Example
 ```js
-  const tab = {
-    name: name,
-    path: '/' + name,
-    component: component,
-    meta: {
-      component: com,
-      title: name,
-      isTabView: true,
-      params,
-      query
-    }
-  }
+import { jumpRouter } from '@/utils/router/insertDynaminRouter'
+/**
+ * @param { 当前实例 } vm
+ * @param { 当前动态路由模板名字 } component
+ * @param { 临时缓存组件地址 } com
+ * @param { 路由name } name 具体看业务是传订单号，还是name+时间戳 要求是不重复
+ * @param { 具体传参数 } params
+ * @param { 查询参数 } query
+ */
+var obj = {
+  vm: this, // 当前实例
+  component: 'GoodDetail', // 组件名字, 底层实现会自动截取[GoodDetail.vue] .vue前的单词作为name
+  com: '@/pages/GoodDetail/GoodDetail.vue', // 真实的组件地址
+  name: name, // 路由name
+  params: {
+    id: o
+  },
+  query: {}
+}
+jumpRouter(obj)
 ```
+
+## 思路(关键的几个js)
+
+* 利用vue提供的addRoutes方法进行动态的注入路由
+* 解决页面刷新动态路由丢失(借助本地缓存，每次刷新进行比对)
+* 提供一系列的操作方法
+* 最终暴露两个方法，一个跳转路由，一个删除路由(tab页签)
+
+##### **[utils/base-config.js](https://github.com/BiYuqi/vue-multiple-tabs-use-one-component/blob/master/src/utils/base-config.js)** 
+
+主要作用是生成浏览记录，产生tab页签数据,不多做解释
+
+##### **[utils/router/routerMap.js](https://github.com/BiYuqi/vue-multiple-tabs-use-one-component/blob/master/src/utils/router/routerMap.js)** 
+
+主要作用是提供动态组件的模板页面, 每次页面刷新，重新注入路由，都需要该js提供的map组件,为什么用map结构？因为取值方便
+
+##### **[utils/router/delAndResetRouter.js](https://github.com/BiYuqi/vue-multiple-tabs-use-one-component/blob/master/src/utils/router/delAndResetRouter.js)** 
+
+主要作用是删除路由(即删除tab页签)，包括四步骤(四个方法)：
+```js
+// 删除本地路由
+delDynamicLocalRoutes(name)
+// 重置全局路由
+resetRouter(vm)
+// 重新实例化路由
+refreshAddRouter(vm)
+// 关闭页签，删除相关缓存
+store.commit('closeOpendList', {
+  vm,
+  name
+})
+
+// 最终暴露一个方法 delAndResetRouter
+
+// 页面使用
+import { delAndResetRouter } from '@/utils/router/delAndResetRouter'
+
+// 传递实例this, 路由name
+delAndResetRouter(this, name)
+```
+##### **[utils/router/insertDynaminRouter.js](https://github.com/BiYuqi/vue-multiple-tabs-use-one-component/blob/master/src/utils/router/insertDynaminRouter.js)** 
+
+主要作用是跳转页面(暴露一个对外方法jumpRouter)：
+```js
+import { jumpRouter } from '@/utils/router/insertDynaminRouter'
+
+const name = 'list-' + o
+/**
+ * @param { 当前实例 } vm
+ * @param { 当前动态路由模板名字 } component
+ * @param { 临时缓存组件地址 } com
+ * @param { 路由name } name 具体看业务是传订单号，还是name+时间戳 要求是不重复
+ * @param { 具体传参数 } params
+ * @param { 查询参数 } query
+ */
+var obj = {
+  vm: this,
+  component: 'GoodDetail',
+  com: '@/pages/GoodDetail/GoodDetail.vue',
+  name: name,
+  params: {
+    id: o
+  },
+  query: {}
+}
+jumpRouter(obj)
+```
+
 ## 预览
 ![](http://oiukswkar.bkt.clouddn.com/dynamic-router.gif)
 
