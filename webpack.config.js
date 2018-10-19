@@ -1,12 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    publicPath: '/',
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [
@@ -27,7 +28,11 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[hash:7].[ext]'
+        }
       },
       {
         test: /\.sass$/,
@@ -81,14 +86,22 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    contentBase: path.join(__dirname, `./index.html`),
+    publicPath: '/',
+    compress: true,
     historyApiFallback: true,
-    noInfo: true,
-    overlay: true
+    noInfo: true
   },
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      inject: true,
+      xhtml: true
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -101,7 +114,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
+      sourceMap: false,
       compress: {
         warnings: false
       }

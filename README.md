@@ -103,6 +103,13 @@ var obj = {
 jumpRouter(obj)
 ```
 
+注： 可以加很多模板，只需要在routerMap.js配置即可，使用时注意以下两个参数
+```js
+// 不同的模板，注意引用不同的模板组件
+component: 'GoodDetail', 
+com: '@/pages/GoodDetail/GoodDetail.vue',
+```
+
 ## 预览
 ![](http://oiukswkar.bkt.clouddn.com/dynamic-router.gif)
 
