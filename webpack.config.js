@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/',
+    publicPath: process.env.NODE_ENV === 'production' ? 'vue-multiple-tabs-use-one-component' : '/',
     filename: 'js/[name].[hash].js'
   },
   module: {
