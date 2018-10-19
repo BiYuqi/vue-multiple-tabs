@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-if="$route.name === 'dashboard_index'"></router-view>
-    <router-view :key="Date.now()" v-else></router-view>
+    <router-view :key="Date.now()"></router-view>
   </div>
 </template>
 
@@ -12,7 +11,7 @@ export default {
   data () {
     return {}
   },
-  beforeCreate() {
+  beforeCreate () {
     refreshAddRouter(this)
     setTimeout(() => {
       this.$store.commit('setOpenedList')

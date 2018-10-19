@@ -7,7 +7,7 @@ const resetRouter = (vm) => {
     ...mainRoutes
   ]
   let newRouter = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     routes
   })
   vm.$router.matcher = newRouter.matcher
@@ -29,20 +29,21 @@ const delDynamicLocalRoutes = (name) => {
 }
 /**
  * @param name 检查是否存在本地的动态路由
+ * 暂未用到
  */
-const hasDynamicLocalRoutes = (name) => {
-  const localRoutes = sessionStorage.dynamic && JSON.parse(sessionStorage.dynamic)
-  let hasLocal = false
-  if (localRoutes && localRoutes.length > 0) {
-    for (let i = 0; i < localRoutes.length; i++) {
-      if (localRoutes[i].name === name) {
-        hasLocal = true
-        break
-      }
-    }
-  }
-  return hasLocal
-}
+// const hasDynamicLocalRoutes = (name) => {
+//   const localRoutes = sessionStorage.dynamic && JSON.parse(sessionStorage.dynamic)
+//   let hasLocal = false
+//   if (localRoutes && localRoutes.length > 0) {
+//     for (let i = 0; i < localRoutes.length; i++) {
+//       if (localRoutes[i].name === name) {
+//         hasLocal = true
+//         break
+//       }
+//     }
+//   }
+//   return hasLocal
+// }
 /**
  * @description 删除路由方法，同时包括删除页签，更新路由
  * @param {当前实例} vm

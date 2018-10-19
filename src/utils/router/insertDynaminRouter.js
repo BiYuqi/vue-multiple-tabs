@@ -31,8 +31,7 @@ function addRouter (param) {
     component: Main,
     children: []
   }
-  const dynamic = sessionStorage.getItem('dynamic') &&
-                  JSON.parse(sessionStorage.getItem('dynamic')) || []
+  const dynamic = (sessionStorage.getItem('dynamic') && JSON.parse(sessionStorage.getItem('dynamic'))) || []
   if (dynamic.length > 0) {
     const len = dynamic.length
     for (let i = 0; i < len; i++) {
@@ -100,7 +99,7 @@ export function refreshAddRouter (vm) {
   if (dynamic.length > 0) {
     for (let i = 0; i < dynamic.length; i++) {
       const FullPath = dynamic[i].meta.component
-      const mapName = FullPath.substring(FullPath.lastIndexOf('\/') + 1, FullPath.lastIndexOf('.'))
+      const mapName = FullPath.substring(FullPath.lastIndexOf('/') + 1, FullPath.lastIndexOf('.'))
       dynamic[i].component = routerMap[mapName]
       routerItem.children.push(dynamic[i])
     }

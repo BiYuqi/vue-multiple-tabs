@@ -14,7 +14,7 @@ import AsideArea from './AsideArea'
 import TabView from './TabView'
 export default{
   data () {
-    return{}
+    return {}
   },
   components: {
     HeaderArea,
@@ -32,4 +32,3 @@ export default{
   }
 }
 </style>
-

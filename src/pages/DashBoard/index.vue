@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text-item{
+.text-item {
   border-bottom: 1px dashed rgb(44, 136, 179);
   cursor: pointer;
 }

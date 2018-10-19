@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     jump (item) {
-      const {params, query, name} = item
+      const { params, query } = item
       /**
        * @description
        * 下面四种情况考虑到参数传递的问题，所以单独处理
@@ -63,14 +63,14 @@ export default {
 </script>
 
 <style lang="scss">
-.tag-view-wrap{
+.tag-view-wrap {
   padding: 4px 0;
-  border-bottom: 1px solid  rgb(230, 230, 230);
-  .tag-view{
+  border-bottom: 1px solid rgb(230, 230, 230);
+  .tag-view {
     cursor: pointer;
     margin: 0 4px;
-    &.active{
-      background-color: #409EFF;
+    &.active {
+      background-color: #409eff;
       color: #fff;
     }
   }

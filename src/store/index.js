@@ -23,7 +23,7 @@ const mutations = {
    * 初始化设置tab 一般默认首页,页面加载时调用
    * @method tabOpendListInit
    */
-  setOpenedList(state) {
+  setOpenedList (state) {
     const local = sessionStorage.pageOpendList && JSON.parse(sessionStorage.pageOpendList).length > 0
     if (local) {
       state.pageOpendList = JSON.parse(sessionStorage.pageOpendList)
@@ -55,13 +55,12 @@ const mutations = {
     state.pageOpendList.push(tag)
   },
   /**
-   * 
-   * @param {*} state 
-   * @param {当前页签信息} obj 
+   * @param {*} state
+   * @param {当前页签信息} obj
    * @param { 当前实例 } obj.vm
    * @param { 路由name} obj.name
    */
-  closeOpendList(state, obj) {
+  closeOpendList (state, obj) {
     // 临时解决方案 后续再完善
     const lists = state.pageOpendList
     if (obj.name === 'dashboard_index') {

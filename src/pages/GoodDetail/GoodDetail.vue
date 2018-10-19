@@ -6,13 +6,12 @@
 </template>
 
 <script>
-  export default {
-    mounted () {
-      console.log(this.$route.meta.params)
-    }
+export default {
+  mounted () {
+    console.log(this.$route.meta.params)
   }
+}
 </script>
 
 <style scoped>
-
 </style>

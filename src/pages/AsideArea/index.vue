@@ -5,12 +5,11 @@
 </template>
 
 <script>
-  export default {
-  }
+export default {}
 </script>
 
 <style scoped>
-.aside-pan{
+.aside-pan {
   position: fixed;
   top: 60px;
   left: 0;

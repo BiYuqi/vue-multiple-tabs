@@ -5,13 +5,11 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {}
 </script>
 
 <style scoped>
-.header-pan{
+.header-pan {
   height: 60px;
   line-height: 60px;
   text-align: center;

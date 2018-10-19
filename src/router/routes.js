@@ -3,7 +3,7 @@
  */
 export default [
   {
-    path: '',
+    path: '/',
     name: 'home_index',
     component: () => import('@/pages/Main.vue'),
     redirect: '/dashboard',
