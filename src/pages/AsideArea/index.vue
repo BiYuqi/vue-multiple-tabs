@@ -16,7 +16,7 @@ export default {}
   width: 180px;
   height: 100%;
   color: #fff;
-  background-color: #248ecb;
+  background-color: #637a8c;
   text-align: center;
   padding-top: 150px;
 }
