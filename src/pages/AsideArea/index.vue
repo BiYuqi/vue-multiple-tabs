@@ -16,8 +16,14 @@ export default {}
   width: 180px;
   height: 100%;
   color: #fff;
-  background-color: #637a8c;
+  background-color: #20435d;
   text-align: center;
   padding-top: 150px;
 }
+@media screen and (max-width: 800px) {
+  .aside-pan {
+    display: none;
+  }
+}
+
 </style>

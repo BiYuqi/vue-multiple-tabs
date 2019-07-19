@@ -70,8 +70,11 @@ export default {
     cursor: pointer;
     margin: 0 4px;
     &.active {
-      background-color: #409eff;
+      background-color: #e63979;
       color: #fff;
+      .el-tag__close {
+        color: #fff;
+      }
     }
   }
 }

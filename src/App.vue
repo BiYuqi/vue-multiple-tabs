@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view :key="Date.now()"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 

@@ -8,7 +8,7 @@
 <script>
 export default {
   mounted () {
-    console.log(this.$route.meta.params)
+    console.log(this.$route.meta.params.id)
   }
 }
 </script>

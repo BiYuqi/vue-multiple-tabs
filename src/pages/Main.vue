@@ -30,5 +30,10 @@ export default{
   .main-content{
     margin-left: 180px;
   }
+  @media screen and (max-width: 800px) {
+    .main-content{
+      margin-left: 0;
+    }
+  }
 }
 </style>
