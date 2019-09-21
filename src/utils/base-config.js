@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from "@/store";
 export default {
   /**
    * @method addOpendPage
@@ -8,22 +8,22 @@ export default {
    * @param param 查询参数
    * 一般放在router BeforeAfter(BeforeEach) 执行
    */
-  addOpendPage: (vm, name, params = '', query = '', meta = '', path = '') => {
-    let pageOpendList = store.state.pageOpendList
-    let opendLen = pageOpendList.length
-    let i = 0
-    let tagHasOpened = false
+  addOpendPage: (vm, name, params = "", query = "", meta = "", path = "") => {
+    let pageOpendList = store.state.pageOpendList;
+    let opendLen = pageOpendList.length;
+    let i = 0;
+    let tagHasOpened = false;
     if (opendLen > 0) {
       for (; i < opendLen; i++) {
         if (name === pageOpendList[i].name) {
-          vm.$store.commit('setPageOpendList', {
+          vm.$store.commit("setPageOpendList", {
             index: i,
             params,
             query,
             meta
-          })
-          tagHasOpened = true
-          break
+          });
+          tagHasOpened = true;
+          break;
         }
       }
     }
@@ -33,22 +33,22 @@ export default {
     if (!tagHasOpened && name) {
       let tag = {
         name: name
-      }
+      };
       if (params) {
-        tag.params = params
+        tag.params = params;
       }
       if (query) {
-        tag.query = query
+        tag.query = query;
       }
       if (meta && meta.isTabView) {
-        tag.meta = meta
+        tag.meta = meta;
       } else if (meta && !meta.isTabView) {
-        return
+        return;
       }
       if (path) {
-        tag.path = path
+        tag.path = path;
       }
-      store.commit('increateTag', tag)
+      store.commit("increateTag", tag);
     }
   }
-}
+};
