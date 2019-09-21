@@ -8,6 +8,7 @@
         {{ "列表内容 " + o }}
       </div>
     </el-card>
+    <el-button @click="goToDocs">跳转到文档页</el-button>
   </div>
 </template>
 
@@ -39,6 +40,11 @@ export default {
         query: {}
       };
       utils.insertRouter(obj);
+    },
+    goToDocs() {
+      this.$router.push({
+        name: "docs_index"
+      });
     }
   }
 };

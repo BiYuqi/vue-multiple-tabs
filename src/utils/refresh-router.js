@@ -1,8 +1,8 @@
 import Main from "@views/Main.vue";
 import configMapping from "./config";
-import { storeSetting } from './config';
+import { storeSetting } from "./config";
 
-const { dynamicName } = storeSetting
+const { dynamicName } = storeSetting;
 
 /**
  * 防止页面刷新时， 路由丢失问题

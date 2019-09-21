@@ -1,10 +1,10 @@
 import Main from "@views/Main.vue";
 import configMapping from "./config";
-import { storeSetting } from './config';
+import { storeSetting } from "./config";
 
-const { dynamicName } = storeSetting
+const { dynamicName } = storeSetting;
 
-const addRouter = (param) => {
+const addRouter = param => {
   const vm = param.vm;
   const com = param.com;
   const name = param.name;
@@ -66,7 +66,7 @@ const addRouter = (param) => {
     params,
     query
   });
-}
+};
 
 /**
  * 这里只是针对一个组件进行复用，实可根据业务进行动态传入组件name

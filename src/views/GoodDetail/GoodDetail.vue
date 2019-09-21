@@ -13,4 +13,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.good-detail {
+  padding: 20px;
+}
+</style>

@@ -16,6 +16,15 @@ export default [
           isTabView: true,
           title: "首页"
         }
+      },
+      {
+        path: "docs",
+        name: "docs_index",
+        component: () => import("@views/Docs/index.vue"),
+        meta: {
+          isTabView: true,
+          title: "文档使用"
+        }
       }
     ]
   }

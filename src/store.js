@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { storeSetting } from './utils/config';
+import { storeSetting } from "./utils/config";
 
 Vue.use(Vuex);
 
