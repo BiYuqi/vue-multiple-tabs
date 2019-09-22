@@ -16,8 +16,7 @@
 - [ ] 代码Eslint 规则修改，消除warning
  
 ## 使用
-* [预览效果](http://loadingmore.com/vue-multiple-tabs)
-placeholder...
+Placeholder...
 
 ## 预览
 [页面预览](vue-multiple-tabs)

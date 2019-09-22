@@ -4,6 +4,8 @@ import { storeSetting } from "./utils/config";
 
 Vue.use(Vuex);
 
+const { storeName } = storeSetting
+
 const state = {
   /**
    * 默认tabview 首页
@@ -27,10 +29,10 @@ const mutations = {
    */
   setOpenedList(state) {
     const local =
-      sessionStorage.pageOpendList &&
-      JSON.parse(sessionStorage.pageOpendList).length > 0;
+      sessionStorage[storeName] &&
+      JSON.parse(sessionStorage[storeName]).length > 0;
     if (local) {
-      state.pageOpendList = JSON.parse(sessionStorage.pageOpendList);
+      state.pageOpendList = JSON.parse(sessionStorage[storeName]);
     }
   },
   /**
@@ -53,7 +55,7 @@ const mutations = {
       opendPage.path = path;
     }
     state.pageOpendList.splice(index, 1, opendPage);
-    sessionStorage.pageOpendList = JSON.stringify(state.pageOpendList);
+    sessionStorage[storeName] = JSON.stringify(state.pageOpendList);
   },
   increateTag(state, tag) {
     state.pageOpendList.push(tag);
@@ -75,7 +77,7 @@ const mutations = {
         const lastName = state.pageOpendList[i - 1].name;
         state.pageOpendList.splice(i, 1);
         sessionStorage.setItem(
-          storeSetting.storeName,
+          storeName,  
           JSON.stringify(state.pageOpendList)
         );
         obj.vm.$router.push({

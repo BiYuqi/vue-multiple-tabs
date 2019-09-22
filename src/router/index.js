@@ -14,7 +14,7 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach(to => {
+router.afterEach((to, from, next) => {
   utils.addOpendPage(
     router.app,
     to.name,

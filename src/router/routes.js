@@ -1,5 +1,5 @@
 /**
- * @param isTabView 是否放入TabView
+ * @param isTabView 是否放入Tabs管理
  */
 export default [
   {
