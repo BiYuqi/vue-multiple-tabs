@@ -8,7 +8,8 @@
         {{ "列表内容 " + o }}
       </div>
     </el-card>
-    <el-button @click="goToDocs">跳转到文档页</el-button>
+    <br />
+    <el-button type="primary" @click="goToDocs">跳转到文档页[普通路由]</el-button>
   </div>
 </template>
 

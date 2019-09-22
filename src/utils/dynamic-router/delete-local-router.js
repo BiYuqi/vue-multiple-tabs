@@ -1,7 +1,7 @@
-import { storeSetting } from "./config";
+import { storeSetting } from "../config";
 
 /**
- * @param name 动态路由编号，提交后删除本地存储的路由
+ * @param {name} 动态路由编号，提交后删除本地存储的路由
  */
 export const deleteLocalRouter = name => {
   const { dynamicName } = storeSetting;

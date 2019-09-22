@@ -13,6 +13,7 @@
 - [x] 删除tab页签(包含注入的动态路由)
 - [x] 功能实现文档编写
 - [ ] 代码优化，整合，方便快速部署该功能
+- [ ] 代码Eslint 规则修改，消除warning
  
 ## 使用
 * [预览效果](http://loadingmore.com/vue-multiple-tabs)

@@ -1,6 +1,6 @@
 import Main from "@views/Main.vue";
-import configMapping from "./config";
-import { storeSetting } from "./config";
+import configMapping from "../config";
+import { storeSetting } from "../config";
 
 const { dynamicName } = storeSetting;
 

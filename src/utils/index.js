@@ -1,6 +1,6 @@
-import { removeRouter } from "./remove-router";
-import { insertRouter } from "./insert-router";
-import { refreshRouterSync } from "./refresh-router";
+import { removeRouter } from "./dynamic-router/remove-router";
+import { insertRouter } from "./dynamic-router/insert-router";
+import { refreshRouterSync } from "./dynamic-router/refresh-router";
 
 export default {
   removeRouter,
