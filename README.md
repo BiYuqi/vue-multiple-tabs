@@ -1,4 +1,4 @@
-# [vue-multiple-tabs](http://loadingmore.com/vue-multiple-tabs)
+# [vue-multiple-tabs](http://loadingmore.com/vue-multiple-tabs) 【不再维护】
 ## 介绍
 > 该工程是基于vue的动态路由案例，复用一个组件，打开多个tab标签页，实现商品类组件复用，可以多tab打开
 
